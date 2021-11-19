@@ -18,7 +18,7 @@ import { AuthModule } from './auth/auth.module';
     }),
     TypeOrmModule.forRootAsync(TypeOrmConfig),
     AuthModule,
-    //GraphQLModule.forRootAsync(graphqlProviders),
+    GraphQLModule.forRootAsync(graphqlProviders),
   ],
   controllers: [AppController],
   providers: [AppService],
