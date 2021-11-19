@@ -6,7 +6,7 @@ export const graphqlProviders: GqlModuleAsyncOptions = {
   imports: [ConfigModule],
   useFactory: (configService: ConfigService) => ({
     autoSchemaFile: true,
-    playground: false,
+    playground: true,
     // cors: configService.get<string>('CORS_ORIGIN'),
     cors: '*',
     context: ({ req }) => ({ headers: req.headers }),
