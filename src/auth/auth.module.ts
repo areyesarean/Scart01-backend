@@ -1,4 +1,7 @@
 import { Module } from '@nestjs/common';
+import { PermisoModule } from './permiso/permiso.module';
 
-@Module({})
+@Module({
+  imports: [PermisoModule]
+})
 export class AuthModule {}
