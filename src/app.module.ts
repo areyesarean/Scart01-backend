@@ -8,6 +8,7 @@ import { AppService } from './app.service';
 import { TypeOrmConfig } from './database/typeorm.config';
 import * as path from 'path';
 import { graphqlProviders } from './graphql/graphql.provider';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { graphqlProviders } from './graphql/graphql.provider';
       isGlobal: true,
     }),
     TypeOrmModule.forRootAsync(TypeOrmConfig),
+    AuthModule,
     //GraphQLModule.forRootAsync(graphqlProviders),
   ],
   controllers: [AppController],
