@@ -9,27 +9,34 @@ export class PermisoResolver {
   constructor(private readonly permisoService: PermisoService) {}
 
   @Mutation(() => Permiso)
-  createPermiso(@Args('createPermisoInput') createPermisoInput: CreatePermisoInput) {
+  createPermiso(
+    @Args('createPermisoInput') createPermisoInput: CreatePermisoInput
+  ) {
     return this.permisoService.create(createPermisoInput);
   }
 
-  @Query(() => [Permiso], { name: 'permiso' })
+  @Query(() => [Permiso], { name: 'permisos' })
   findAll() {
     return this.permisoService.findAll();
   }
 
   @Query(() => Permiso, { name: 'permiso' })
-  findOne(@Args('id', { type: () => Int }) id: number) {
+  findOne(@Args('id', { type: () => String }) id: string) {
     return this.permisoService.findOne(id);
   }
 
   @Mutation(() => Permiso)
-  updatePermiso(@Args('updatePermisoInput') updatePermisoInput: UpdatePermisoInput) {
-    return this.permisoService.update(updatePermisoInput.id, updatePermisoInput);
+  updatePermiso(
+    @Args('updatePermisoInput') updatePermisoInput: UpdatePermisoInput
+  ) {
+    return this.permisoService.update(
+      updatePermisoInput.id,
+      updatePermisoInput
+    );
   }
 
   @Mutation(() => Permiso)
-  removePermiso(@Args('id', { type: () => Int }) id: number) {
+  removePermiso(@Args('id', { type: () => String }) id: string) {
     return this.permisoService.remove(id);
   }
 }
