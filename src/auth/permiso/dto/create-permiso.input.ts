@@ -7,4 +7,8 @@ export class CreatePermisoInput {
   @IsNotEmpty()
   @Field(() => String, { description: 'Nombre del permiso' })
   permisoName: string;
+
+  @IsString()
+  @Field(() => String, { description: 'descripcion del permiso' })
+  description: string;
 }
