@@ -8,7 +8,13 @@ export class Permiso {
   @Field(() => ID, { description: 'id del permiso en formato uuid' })
   id: string;
 
-  @Column({ unique: true })
+  @Column({ unique: true, name: 'permiso_name' })
   @Field(() => String, { description: 'Nombre del permiso' })
   permisoName: string;
+
+  @Column({ length: 255, nullable: true, default: 'No tiene descripcion' })
+  @Field(() => String, {
+    description: 'Descripcion del permiso',
+  })
+  description: string;
 }
