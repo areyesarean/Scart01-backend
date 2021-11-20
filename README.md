@@ -25,6 +25,8 @@
 ## Description
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+[GraphQl](https://graphql.org/) A query language for your API.
+[TypeOrm](https://typeorm.io/#/) Object Relational Mapper.
 
 ## Installation
 
