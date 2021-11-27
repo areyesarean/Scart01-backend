@@ -9,6 +9,7 @@ export class CreateRolInput {
   rolName: string;
 
   @IsArray()
+  @IsNotEmpty({ each: true })
   @IsUUID('all', {
     each: true,
     message: 'Los id de los permisos deben ser de tipo uuid',
