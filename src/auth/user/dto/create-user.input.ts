@@ -4,6 +4,7 @@ import {
   IsEmail,
   IsNotEmpty,
   IsString,
+  IsUUID,
   Length,
 } from 'class-validator';
 
@@ -16,7 +17,7 @@ export class CreateUserInput {
 
   @IsString()
   @IsNotEmpty()
-  @Length(8, 16)
+  @Length(8, 32)
   @Field(() => String, { description: 'Contrasenna' })
   password: string;
 
@@ -43,4 +44,9 @@ export class CreateUserInput {
   @IsNotEmpty()
   @Field(() => Boolean, { description: 'Es verificado ?' })
   verified: boolean;
+
+  @IsString()
+  @IsUUID()
+  @Field(() => String, { description: 'Rol id' })
+  rolId: string;
 }
