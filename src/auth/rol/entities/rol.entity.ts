@@ -1,10 +1,13 @@
 import { ObjectType, Field, ID } from '@nestjs/graphql';
 import { Permiso } from 'src/auth/permiso/entities/permiso.entity';
+import { User } from 'src/auth/user/entities/user.entity';
 import {
   Column,
   Entity,
   JoinTable,
   ManyToMany,
+  ManyToOne,
+  OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 
@@ -22,7 +25,7 @@ export class Rol {
   rolName: string;
 
   @Field(() => [Permiso], { description: 'Roles' })
-  @ManyToMany(() => Permiso, (permiso) => permiso.rol)
+  @ManyToMany(() => Permiso, (permiso) => permiso.rol, { eager: true })
   @JoinTable({
     name: 'rol_permiso',
     joinColumn: {
@@ -33,4 +36,7 @@ export class Rol {
     },
   })
   permisos: Permiso[];
+
+  @OneToMany(() => User, (user) => user.rol)
+  users: User[];
 }
