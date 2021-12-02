@@ -25,7 +25,7 @@ export class LoginService {
     return { token: await this.createToken(user) };
   }
 
-  async createToken({ password, rol, active, verified, ...payload }: User) {
+  async createToken({ password, rol, active, verified, ...payload }: User): Promise<string> {
     const token = await this._jwtService.signAsync(payload);
     return token;
   }
